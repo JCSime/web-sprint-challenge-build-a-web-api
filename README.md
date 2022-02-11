@@ -147,7 +147,26 @@ We have provided test data for all the resources.
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
+*** The core features of Node.js are:
+     * Asynchronous and Event Driven, 
+     * Very Fast, 
+     * Single Threaded but Highly Scalable, 
+     * No Buffering
+    The core features of Express are:
+     * It can be used to design single-page, multi-page and hybrid web applications.
+     * It allows to setup middlewares to respond to HTTP Requests.
+     * It defines a routing table which is used to perform different actions based on HTTP method and URL.
+     * It allows to dynamically render HTML Pages based on passing arguments to templates.
+     
 1. Understand and explain the use of Middleware.
+*** Middleware works to connect operations and communication between files.
+
 1. The basic principles of the REST architectural style.
+*** REpresentational State Transfer (REST) is an architectural style that is characterized by how they are stateless and separate the concerns of client and server.
+
 1. Understand and explain the use of Express Routers.
+*** Express Routers is a web framework for Node.js that introduces functionality like rendering, router, etc.
+    The reason Express is so popular is because not only can you do basic routing but also handle validation, handling 404, and other errors.
+
 1. Describe tooling used to manually test the correctness of an API.
+*** I personally use HTTPie and Postman to test my APIs. They are great tools to not only make sure your endpoints actually work, but also when they don't work most of the times you can find out why it didn't work based on the error you get back, specially if used with well made middleware.

@@ -1,20 +1,21 @@
-require('dotenv').config();
 const express = require('express');
-const projectRouter = require('./projects/projects-router');
 const server = express();
+const logger = require('morgan');
 server.use(express.json());
-server.use('/api/posts', projectRouter)
 
-server.use('*', (req, res)=>{
-    res.status(404).json({
-        message: 'not found'
-    });
-});
+server.use(logger('dev'));
+const projectsRouter = require('./projects/projects-router')
+const actionsRouter = require('./actions/actions-router')
 
+server.use('/api/projects', projectsRouter)
+server.use('/api/actions', actionsRouter)
 
-// Configure your server here
-// Build your actions router in /api/actions/actions-router.js
-// Build your projects router in /api/projects/projects-router.js
-// Do NOT `server.listen()` inside this file!
+server.use((error, req, res, next) => {
+    console.log(error.status)
+    res.status(error.status || 500).json({
+      message: 'Something bad happened',
+      originalMessage: error.message,
+    })
+  })
 
 module.exports = server;
